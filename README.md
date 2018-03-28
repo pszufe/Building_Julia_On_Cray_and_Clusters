@@ -106,6 +106,29 @@ scp julia_source_folder/deps/srccache/* user@hostname:/home/user/julia_target_fo
 ```
 The above command will ignore folders - that is OK you need to only copy archive files. 
 
+*Step 3* Configure the `Make.user` file
+```
+echo "" >> Make.user
+echo "USEICC = 0" >> Make.user
+echo "USEIFC = 0" >> Make.user
+echo "USE_INTEL_MKL = 1" >> Make.user
+echo "USE_INTEL_LIBM = 0" >> Make.user
+echo "" >> Make.user
+
+
+
+*Step 4* configure the compilers
+```
+module swap PrgEnv-cray PrgEnv-intel
+module load PrgEnv-intel
+module load gcc
+module load  python/anaconda2.7
+```
+
+*Step 5* Install a newer cmake
+```
+bash contrib/download_cmake.sh
+
 
 
 
