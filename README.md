@@ -84,19 +84,27 @@ make
 
 
 
-## Building Julia on a Cray 
+## Building Julia on a Cray XC40 Supercomputer 
 
 This tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Okeanos Cray XC40](https://kdm.icm.edu.pl/kdm/Okeanos)
 
-*Step 1*
-The main problem with building Julia on supercomputers is the outtdated software. Building Julia requires downloading several files from the the internet. In many scenarios you will see errors similiar to this one: `error:1407742E:SSL routines:SSL23_GET_SERVER_HELLO:`. The solution is to download Julia on some different machine and than compy it to the cluster node. For an axample (ICM's Cray)
-`
-
-`
+*Step 1* Clone Julia and checkout
+The main problem with building Julia on supercomputers is the outtdated software. Building Julia requires downloading several files from the the internet. In many scenarios you will see errors similiar to this one: `error:1407742E:SSL routines:SSL23_GET_SERVER_HELLO:`. The solution is to download Julia on some different machine and than compy it to the cluster access node with the `scp` command. For instructions how to clone see the previous tutorial. 
 
 
 
 *Step 2* Download dependencies
+Julia's builder downloads several files from the internet and will not be able to do so on Cray due to old SSL version. 
+Firstly on the Cray access node go to your julia directory and create `deps/srccache/` subfolder, e.g.
+```
+cd julia
+mkdir deps/srccache/
+```
+Now you need some some copy of Julia that you succesfully built on a different machine and run (from a remote machine):
+```
+scp julia_source_folder/deps/srccache/* user@hostname:/home/user/julia_target_folder/deps/srccache/
+```
+The above command will ignore folders - that is OK you need to only copy archive files. 
 
 
 
