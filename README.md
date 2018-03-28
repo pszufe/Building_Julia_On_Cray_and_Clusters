@@ -6,10 +6,17 @@ and I spent some time on it, I would like to share my experience on this page.
 
 This is a complimentary material for the workshop presented at [SuperComputing Frontiers 2018 conference](https://supercomputingfrontiers.eu/2018/tutorials-programme/).
 
+## Building Julia on a Cray 
+
+This tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Okeanos Cray XC40](https://kdm.icm.edu.pl/kdm/Okeanos)
+
+(under preparation)
+
+
 
 ## Building Julia on a computing cluster
 
-This tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Topola Supercomputer](https://kdm.icm.edu.pl/kdm/Topola))
+This tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Topola Supercomputer](https://kdm.icm.edu.pl/kdm/Topola)
 
 Julia needs to be built separately for the access node (if needed) and for the workers nodes. 
 
