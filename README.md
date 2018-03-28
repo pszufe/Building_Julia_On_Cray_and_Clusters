@@ -6,21 +6,16 @@ and I spent some time on it, I would like to share my experience on this page.
 
 This is a complimentary material for the workshop presented at [SuperComputing Frontiers 2018 conference](https://supercomputingfrontiers.eu/2018/tutorials-programme/).
 
-## Building Julia on a Cray 
-
-This tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Okeanos Cray XC40](https://kdm.icm.edu.pl/kdm/Okeanos)
-
-(under preparation)
-
-
+I start by explaining how to build Julia on a computing cluster (based on Scientific Linux 6 / Cent OS 6.9) and then move forward to Cray (based on SLES 11). 
 
 ## Building Julia on a computing cluster
 
-This tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Topola Supercomputer](https://kdm.icm.edu.pl/kdm/Topola)
+This part of the tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Topola Supercomputer](https://kdm.icm.edu.pl/kdm/Topola)
 
 Julia needs to be built separately for the access node (if needed) and for the workers nodes. 
 
 Since the process takes few hours I advise to run `screen` before the following commands. 
+
 
 ### Building Julia for the access node
 
@@ -87,6 +82,21 @@ make
 ```
 
 
+
+
+## Building Julia on a Cray 
+
+This tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Okeanos Cray XC40](https://kdm.icm.edu.pl/kdm/Okeanos)
+
+*Step 1*
+The main problem with building Julia on supercomputers is the outtdated software. Building Julia requires downloading several files from the the internet. In many scenarios you will see errors similiar to this one: `error:1407742E:SSL routines:SSL23_GET_SERVER_HELLO:`. The solution is to download Julia on some different machine and than compy it to the cluster node. For an axample (ICM's Cray)
+`
+
+`
+
+
+
+*Step 2* Download dependencies
 
 
 
