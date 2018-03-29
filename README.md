@@ -30,6 +30,7 @@ git checkout v0.6.2
 ```
 
 *Step 3* Configure the `Make.user` file
+
 ```
 echo "" >> Make.user
 echo "USEICC = 0" >> Make.user
@@ -38,7 +39,9 @@ echo "USE_INTEL_MKL = 1" >> Make.user
 echo "USE_INTEL_LIBM = 0" >> Make.user
 echo "" >> Make.user
 ```
+
 *Step 4* configure the compilers
+
 ```
 module use /icm/hydra/soft/easybuild/modules/all
 module load GCC
@@ -114,7 +117,7 @@ echo "USEIFC = 0" >> Make.user
 echo "USE_INTEL_MKL = 1" >> Make.user
 echo "USE_INTEL_LIBM = 0" >> Make.user
 echo "" >> Make.user
-
+```
 
 
 *Step 4* configure the compilers
@@ -141,10 +144,14 @@ setenv LD cc
 
 *Step 7* Build Julia
 To build Julia for worker node run
-```srun make```
+```
+srun make
+```
 
 To build Julia for access node run (use a separate copy of the Julia folder)
-```make```
+```
+make
+```
 
 
 
