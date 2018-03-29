@@ -128,6 +128,23 @@ module load  python/anaconda2.7
 *Step 5* Install a newer cmake
 ```
 bash contrib/download_cmake.sh
+setenv PATH /lustre/tetyda/home/pszufe/b2/julia/deps/scratch/cmake-3.7.1-Linux-x86_64/bin:$PATH
+```
+After setting up cmake run `cmake --version` - if you are seeing `3.7.1` you did it correctly.
+
+*Step 6* Set the compiler and linker
+```
+setenv CC gcc
+setenv LD cc
+```
+
+
+*Step 7* Build Julia
+To build Julia for worker node run
+```srun make```
+
+To build Julia for access node run (use a separate copy of the Julia folder)
+```make```
 
 
 
