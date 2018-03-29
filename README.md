@@ -95,7 +95,7 @@ The main problem with building Julia on supercomputers is the outtdated software
 
 *Step 2* Download dependencies
 Julia's builder downloads several files from the internet and will not be able to do so on Cray due to old SSL version. 
-Firstly on the Cray access node go to your julia directory and create `deps/srccache/` subfolder, e.g.
+Firstly, on the Cray access node go to your julia directory and create `deps/srccache/` subfolder, e.g.
 ```
 cd julia
 mkdir deps/srccache/
