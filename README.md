@@ -1,4 +1,4 @@
-# Building Julia On Cray and other Supercomputing Clusters
+# How to build Julia On Cray XC40 and other Supercomputing Clusters
 Sample scripts to build Julia on Cray and other supercomputing architectures
 
 Since building Julia on Supercomputers is currently not well documented 
