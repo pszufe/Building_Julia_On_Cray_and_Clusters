@@ -23,6 +23,7 @@ Since the process takes few hours I advise to run `screen` before the following 
 
 
 *Step 2* Clone and checkout
+
 ```
 git clone https://github.com/JuliaLang/julia.git
 cd julia
@@ -52,6 +53,7 @@ module load /apps/modulefiles/common/cmake/3.6.2
 ```
 
 *Step 5* Run `make`
+
 ```
 make
 ```
@@ -92,11 +94,11 @@ make
 This tutorial is based on my experience with [ICM](http://icm.edu.pl/en/)'s [Okeanos Cray XC40](https://kdm.icm.edu.pl/kdm/Okeanos)
 
 *Step 1* Clone Julia and checkout
+
 The main problem with building Julia on supercomputers is the outtdated software. Building Julia requires downloading several files from the the internet. In many scenarios you will see errors similiar to this one: `error:1407742E:SSL routines:SSL23_GET_SERVER_HELLO:`. The solution is to download Julia on some different machine and than compy it to the cluster access node with the `scp` command. For instructions how to clone see the previous tutorial. 
 
-
-
 *Step 2* Download dependencies
+
 Julia's builder downloads several files from the internet and will not be able to do so on Cray due to old SSL version. 
 Firstly, on the Cray access node go to your julia directory and create `deps/srccache/` subfolder, e.g.
 ```
@@ -110,6 +112,7 @@ scp julia_source_folder/deps/srccache/* user@hostname:/home/user/julia_target_fo
 The above command will ignore folders - that is OK you need to only copy archive files. 
 
 *Step 3* Configure the `Make.user` file
+
 ```
 echo "" >> Make.user
 echo "USEICC = 0" >> Make.user
@@ -121,6 +124,7 @@ echo "" >> Make.user
 
 
 *Step 4* configure the compilers
+
 ```
 module swap PrgEnv-cray PrgEnv-intel
 module load PrgEnv-intel
@@ -129,13 +133,15 @@ module load  python/anaconda2.7
 ```
 
 *Step 5* Install a newer cmake
+
 ```
 bash contrib/download_cmake.sh
-setenv PATH /lustre/tetyda/home/pszufe/b2/julia/deps/scratch/cmake-3.7.1-Linux-x86_64/bin:$PATH
+setenv PATH julia_source_folder/deps/scratch/cmake-3.7.1-Linux-x86_64/bin:$PATH
 ```
-After setting up cmake run `cmake --version` - if you are seeing `3.7.1` you did it correctly.
+After setting up cmake try running `cmake --version` - if you are seeing `3.7.1` you did it correctly.
 
 *Step 6* Set the compiler and linker
+
 ```
 setenv CC gcc
 setenv LD cc
@@ -143,12 +149,13 @@ setenv LD cc
 
 
 *Step 7* Build Julia
-To build Julia for worker node run
+
+To build Julia for worker nodes run:
 ```
 srun make
 ```
 
-To build Julia for access node run (use a separate copy of the Julia folder)
+To build Julia for an access node run (use a separate copy of the Julia folder):
 ```
 make
 ```
