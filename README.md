@@ -1,10 +1,11 @@
-# How to build Julia On Cray XC40 and other Supercomputing Clusters
+# How to build Julia On Cray XC40 supercomputer and computing clusters
 Sample scripts to build Julia on Cray and other supercomputing architectures
+
 
 Since building Julia on Supercomputers is currently not well documented 
 and I spent some time on it, I would like to share my experience on this page. 
 
-This is a complimentary material for the workshop presented at [SuperComputing Frontiers 2018 conference](https://supercomputingfrontiers.eu/2018/tutorials-programme/).
+This is a complimentary material for the workshop presented at [SuperComputing Frontiers 2018 conference](https://supercomputingfrontiers.eu/2018/tutorials-programme/). I publish it to make your life easier - should you have any questions or comments, please let me know. 
 
 I start by explaining how to build Julia on a computing cluster (based on Scientific Linux 6 / Cent OS 6.9) and then move forward to Cray (based on SLES 11). 
 
